@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="D:\study materials\4th sem study material\web programming\Comics\c1.css">
+
+    <title>VIRTUAL COMICS</title>
+    <script>
+        const FormValidation = {
+            validateName: function(name) {
+                var nameRegex = /^[a-zA-Z\s]+$/;
+                return name.match(nameRegex);
+            },
+            validateEmail: function(email) {
+                var emailRegex = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
+                return email.match(emailRegex);
+            },
+        };
+        
+        function validationForm() {
+            var name = document.forms["RegistrationForm"]["name"].value;
+            var username = document.forms["RegistrationForm"]["username"].value;
+            var email = document.forms["RegistrationForm"]["email"].value;
+            var country = document.forms["RegistrationForm"]["country"].value;
+            var gender = document.forms["RegistrationForm"]["gender"].value;
+            var dob = document.forms["RegistrationForm"]["dob"].value;
+            var mobile = document.forms["RegistrationForm"]["mobile"].value;
+            var password = document.forms["RegistrationForm"]["password"].value;
+            var confirmpassword = document.forms["RegistrationForm"]["confirmpassword"].value;
+
+            var nameRegex = /^[a-zA-Z\s]+$/;  
+            var emailRegex = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
+            var mobileRegex = /^[1-9]\d{9}$/;
+
+            if (name == "" || username=="" || email == "" || country=="select" || gender=="" || dob=="" || mobile=="" || password == ""  || confirmpassword == "") {
+                alert("All fields must be filled out");
+                return false;}
+            if (!name.match(nameRegex)) {
+                alert("Please enter a valid name");
+                return false;}
+            if (!username.match(nameRegex)) {
+                alert("Please enter a valid username");
+                return false;}
+            if (!email.match(emailRegex)) {
+                alert("Please enter a valid email address");
+                return false;}
+            if (gender === "") {
+                alert("Please select a gender");
+                return false;}
+            if (!dob) {
+                alert("Please enter a valid date of birth");
+                return false;}
+            if (!mobile.match(mobileRegex)) {
+                alert("Please enter a valid mobile number");
+                return false;}
+            if (password.length < 6) {
+                alert("Password must be at least 6 characters long");
+                return false;}
+            if (password !== confirmpassword) {
+                alert("Passwords do not match");
+                return false;}
+            return true;
+        }
+        function createUser() {
+            let username = document.getElementById('usernameInput').value;
+            let dob = parseInt(document.getElementById('dobInput').value);
+                 let user = {
+                name: username,
+                dob: dob,
+                greet: function() {
+                    return 'Hello, my name is ' + this.username + ' and I am ' + this.dob + ' years old.';
+                }};
+            alert(user.greet());
+        }
+        const FieldZoom = {
+            zoomin: function(x) {
+                x.style.color = "#0056b3";
+                x.style.backgroundColor = "#fca7e4";
+            },
+            zoomout: function(x) {
+                x.style.color = "black";
+                x.style.backgroundColor = "#f4cee9";
+            }
+        }; 
+        var KeyEvents = {
+    key_pressed: document.getElementById('field'),
+
+    initialize: function() {
+        this.key_pressed.addEventListener("keydown", this.onKeyDown);
+        this.key_pressed.addEventListener("keypress", this.onKeyPress);
+        this.key_pressed.addEventListener("keyup", this.onKeyUp);
+    },
+
+    onKeyDown: function(event) {
+        document.getElementById("status").innerHTML = 'keydown: ' + event.key + '<br>';
+    },
+
+    onKeyPress: function(event) {
+        document.getElementById("status").innerHTML += 'keypress: ' + event.key + '<br>';
+    },
+
+    onKeyUp: function(event) {
+        document.getElementById("status").innerHTML += 'keyup: ' + event.key + '<br>';
+    }
+};
+var Navigation = {
+    redirectToLogin: function() {
+        document.location = 'file:///D:/study%20materials/4th%20sem%20study%20material/web%20programming/Comics/c2.html';
+    }
+    };
+
+    </script>
+</head>
+<body style="background-image: url('https://image.winudf.com/v2/image/Y29tLmJlc3R3YWxscGFwZXIuc29ueS53YWxscGFwZXJfc2NyZWVuXzBfMTUxODUzMjk5NF8wMzk/screen-0.jpg?fakeurl=1&type=.jpg');">
+    <header>
+                <a href="http://virtualcomics/homepage.com">Home</a> |
+                <a href="http://virtualComics/comicspage.com">Comics</a> |
+                <a href="http://virtualComics/chatstorypage.com">Chat Story</a> |
+                <a href="http://virtualComics/novalpage.com">Noval</a>
+    </header>
+    
+    
+ 
+    
+    <h1>VIRTUAL COMICS</h1>  
+    
+
+    <br><img src="D:\logu documents\naruto.jpg" height="400" width="700"></a>
+        <img src="C:\Users\nanth\OneDrive\Pictures\OIP.jpeg" height="400" width="310">
+        <img src="C:\Users\nanth\OneDrive\Pictures\OIP (1).jpeg" height="400" width="310">
+    
+    <div class="container">
+        <center>
+            <form name="RegistrationForm" onsubmit="return validationForm()" action="D:\study materials\4th sem study material\web programming\Comics\c3.html">
+                <u><h2>CREATE YOUR ACCOUNT</h2><br></u> 
+                <div class="input-group">
+                    <label>Enter your Name</label>
+                    <input onfocus="FieldZoom.zoomin(this)" onblur="FieldZoom.zoomout(this)" type="text" placeholder="Full Name" name="name" required>
+                </div><br>
+                <div class="input-group">
+                    <label>Username</label>
+                    <input onfocus="FieldZoom.zoomin(this)" onblur="FieldZoom.zoomout(this)" type="text" placeholder="Username" name="username" required>
+                </div><br>
+                <div class="input-group">
+                    <label>Email</label>
+                    <input onfocus="FieldZoom.zoomin(this)" onblur="FieldZoom.zoomout(this)" type="text" placeholder="Email" name="email" required>
+                </div><br>
+                <div class="input-group">
+                    <label>Country</label>
+                    <select name="country">
+                        <option value="select">Select Country</option>
+                        <option value="Argentina">Argentina</option>
+                        <option value="Brazil">Brazil</option>
+                        <option value="country">China</option>
+                        <option value="country">Iran</option>
+                        <option value="country">Japan</option>
+                        <option value="country">India</option>
+                        <option value="country">South Korea</option>
+                        <option value="country">Thailand</option>
+                        <option value="country">USA</option>
+                    </select>
+                </div><br>
+                <div class="input-group">
+                    <label>Gender</label>
+                    <input type="radio" name="gender" value="male"> Male
+                    <input type="radio" name="gender" value="female"> Female
+                    <input type="radio" name="gender" value="other"> Other
+                </div><br>
+                <div class="input-group">
+                    <label>Date of Birth</label>
+                    <input onfocus="FieldZoom.zoomin(this)" onblur="FieldZoom.zoomout(this)" type="date" name="dob" required>
+                </div><br>
+                <div class="input-group">
+                    <label>Mobile Number</label>
+                    <input onfocus="FieldZoom.zoomin(this)" onblur="FieldZoom.zoomout(this)" type="tel" placeholder="Mobile Number" name="mobile" required>
+                </div><br>
+                <div class="input-group">
+                    <label>Password</label>
+                    <input onfocus="FieldZoom.zoomin(this)" onblur="FieldZoom.zoomout(this)" type="password" placeholder="Password" name="password" required>
+                </div><br>
+                <div class="input-group">
+                    <label>Confirm Password</label>
+                    <input  onfocus="FieldZoom.zoomin(this)" onblur="FieldZoom.zoomout(this)" type="password" placeholder="Confirm Password" name="confirmpassword" required>
+                </div><br>
+
+                <div class="input-group">
+                <button type="submit" value="Register" onclick="createUser()">Create new Account</button>
+                <button type="button" onclick="Navigate.redirectToLogin()">Login</button>
+                </div>
+
+            </form>
+        </center>
+    </div>
+</body>
+</html>

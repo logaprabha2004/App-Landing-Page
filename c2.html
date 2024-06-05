@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+    <head><title>Login</title>
+        <link rel="stylesheet" href="D:\study materials\4th sem study material\web programming\Comics\c1.css">
+
+        <script>
+            function validationForm() {
+                var username = document.forms["RegistrationForm"]["username"].value;
+                var email = document.forms["RegistrationForm"]["email"].value;
+                var password = document.forms["RegistrationForm"]["password"].value;
+    
+                var nameRegex = /^[a-zA-Z\s]+$/;  
+                var emailRegex = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
+
+                if (username=="" || email == "" || password == "") {
+                alert("All fields must be filled out");
+                return false;
+            }
+            if (!username.match(nameRegex)) {
+                alert("Please enter a valid username");
+                return false;
+            }
+            if (!email.match(emailRegex)) {
+                alert("Please enter a valid email address");
+                return false;
+            }
+            if (password.length < 6) {
+                alert("Password must be at least 6 characters long");
+                return false;
+            }
+        }
+        $(document).ready(function(){
+            $("#myButton").click(function(){
+                alert("login successfully!");
+            });
+        });
+        $(document).ready(function(){
+            $("input").blur(function(){
+                $(this).next("span").show().fadeout("slow");
+            });
+        });
+        $(document).ready(function(){
+            $("input").focus(function(){
+                $(this).next("span").show().fadeout("slow");   
+            });
+        });
+    </script>
+        
+    </script>
+    </script>
+
+    </head>
+<body>
+    <h4>Home &nbsp;  Comics   &nbsp;    Chat Story  &nbsp;     Noval</h4>
+
+    <hr>
+        <h1> VIRTUAL COMICS</h1>
+        <img src="D:\logu documents\naruto.jpg" height="300" width="700"></a>
+        <img src="C:\Users\nanth\OneDrive\Pictures\OIP.jpeg" height="300" width="300">
+        <img src="C:\Users\nanth\OneDrive\Pictures\OIP (1).jpeg" height="300" width="300">
+    <center>
+    <form name="RegistrationForm" onsubmit="return validationForm()" action="D:\study materials\4th sem study material\web programming\Comics\c3.html">
+        <u><h2>LOGIN ACCOUNT</h2><br></u> 
+        <div class="input-group">
+            <label>Username</label>
+            <input type="text" placeholder="Username" name="username" required>
+        </div><br>
+
+        <div class="input-group">
+            <label>Email</label>
+            <input type="text" placeholder="Email" name="email" required>
+        </div><br>
+
+        <div class="input-group">
+            <label>Password</label>
+            <input type="password" placeholder="Password" name="password" required>
+        </div><br>
+
+        <div class="input-group">
+            <button type="submit" id="myButton"value="Register">Login</button>
+            <button type="button" onclick="document.location='file:///D:/study%20materials/4th%20sem%20study%20material/web%20programming/Comics/c1.html'">Create new Account</button>
+            <button type="button" id="myButton">reset</button>
+            </div>
+    </form>
+</center>
+</body>
+</html>
